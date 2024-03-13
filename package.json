@@ -1,0 +1,23 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "a react typescript web template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "author": "Joe.zhang",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.26",
+    "@types/react": "^18.2.65",
+    "@types/react-dom": "^18.2.22",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6"
+  }
+}
