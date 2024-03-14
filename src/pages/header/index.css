@@ -1,0 +1,21 @@
+.header-container {
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+input[type="text"] {
+    font-size: 1.6rem;
+    padding: 10px;
+    border-radius: 5px;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+
+input:focus {
+    border: 0;
+    outline: none;
+    border: 2px solid hsla(0, 0%, 80%, 0.5);
+    box-shadow: 1px 1px 10px 1px hsla(0, 0%, 80%, 0.5);
+}
