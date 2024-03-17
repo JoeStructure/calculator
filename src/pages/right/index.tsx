@@ -1,28 +1,32 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import './index.css'
+
+type Fct = (x: string) => void
 
 interface R {
     valueOne: string,
     valueTwo: string,
-    operator: string
+    operator: string,
+    calResult: number,
+    getCalResult: Fct
 }
 
 function Right(props: R) {
-    let [calResult, setCalResult] = useState(0)
+    // let [calResult, setCalResult] = useState(0)
 
-    function formatOperator(val: string) {
-        if (val === "add") { return '+' }
-        if (val === "sub") { return '-' }
-        if (val === "mul") { return '*' }
-        if (val === "exc") { return '/' }
-    }
+    // function formatOperator(val: string) {
+    //     if (val === "add") { return '+' }
+    //     if (val === "sub") { return '-' }
+    //     if (val === "mul") { return '*' }
+    //     if (val === "exc") { return '/' }
+    // }
 
-    function getCalResult(val: string) {
-        if (val === "add") { setCalResult( Math.floor(Number(props.valueOne) + Number(props.valueTwo))) }
-        if (val === "sub") { setCalResult( Math.floor(Number(props.valueOne) - Number(props.valueTwo))) }
-        if (val === "mul") { setCalResult( Math.floor(Number(props.valueOne) * Number(props.valueTwo))) }
-        if (val === "exc") { setCalResult( Math.floor(Number(props.valueOne) / Number(props.valueTwo))) }
-    }
+    // function getCalResult(val: string) {
+    //     if (val === "add") { setCalResult( Math.floor(Number(props.valueOne) + Number(props.valueTwo))) }
+    //     if (val === "sub") { setCalResult( Math.floor(Number(props.valueOne) - Number(props.valueTwo))) }
+    //     if (val === "mul") { setCalResult( Math.floor(Number(props.valueOne) * Number(props.valueTwo))) }
+    //     if (val === "exc") { setCalResult( Math.floor(Number(props.valueOne) / Number(props.valueTwo))) }
+    // }
 
     return(
         <div className="right-container">
@@ -30,7 +34,7 @@ function Right(props: R) {
                 {props.valueOne}
             </div>
             <div className="right-item">
-                {formatOperator(props.operator)}
+                {props.operator}
             </div>
             <div className="right-item">
                 {props.valueTwo}
@@ -39,9 +43,9 @@ function Right(props: R) {
                 =
             </div>
             <div className="right-item">
-                {calResult}
+                {props.calResult}
             </div>
-            <button onClick={() => {getCalResult(props.operator)}}>计算</button>
+            <button onClick={() => {props.getCalResult(props.operator)}}>计算</button>
         </div>
     )
 }
