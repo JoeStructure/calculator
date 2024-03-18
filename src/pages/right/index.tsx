@@ -1,5 +1,7 @@
 // import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import './index.css'
+import { addVal } from '../../service/valService'
 
 type Fct = (x: string) => void
 
@@ -12,6 +14,7 @@ interface R {
 }
 
 function Right(props: R) {
+    const dispath = useDispatch()
     // let [calResult, setCalResult] = useState(0)
 
     // function formatOperator(val: string) {
@@ -45,7 +48,7 @@ function Right(props: R) {
             <div className="right-item">
                 {props.calResult}
             </div>
-            <button onClick={() => {props.getCalResult(props.operator)}}>计算</button>
+            <button onClick={() => {props.getCalResult(props.operator);dispath(addVal({val: "2"}))}}>计算</button>
         </div>
     )
 }

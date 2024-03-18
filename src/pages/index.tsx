@@ -3,10 +3,14 @@ import Header from "./header";
 import Left from "./left"
 import Right from "./right"
 import './index.css'
+import { useSelector } from "react-redux";
+import { RootState } from "../store"
 
 type Fct = (x: string) => void
 
 function MyComponet() {
+    const vals = useSelector((state:RootState)=>state.valt.val)
+
     let [valueOne, setValueOne] = useState("")
     let [valueTwo, setValueTwo] = useState("")
     let [operator, setOperator] = useState("")
@@ -50,7 +54,7 @@ function MyComponet() {
                     <Left getOperator={getChildOperator}/>
                 </div>
                 <div className="page-body-right">
-                    <Right valueOne={valueOne} valueTwo={valueTwo} operator={formatOperator(operator) || ''} calResult={calResult} getCalResult={getCalResult}/>
+                    <Right valueOne={vals} valueTwo={valueTwo} operator={formatOperator(operator) || ''} calResult={calResult} getCalResult={getCalResult}/>
                 </div>
             </div>
         </div>
